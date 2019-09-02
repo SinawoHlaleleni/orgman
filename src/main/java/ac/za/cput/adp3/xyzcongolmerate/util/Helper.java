@@ -8,19 +8,20 @@ public class Helper {
         return suffix + "-" + UUID.randomUUID().toString();
     }
 
-    public static String getClassName(Class<?>  aClass) {
+    public static String getClassName(Class<?> aClass) {
         return aClass.getSimpleName();
     }
 
     public static String getSuffixFromClassName(Class<?> aClass) {
         String className = getClassName(aClass);
-        throw new UnsupportedOperationException("Not yet supported!");
-        /**
-         * Your implementation goes here
-         *
-         * INSTRUCTION
-         * 1. Remove line 17 [throw new UnsupportedOperationException("Not yet supported!");]
-         * 2. Get the capitalized letter(s) from the className and return it.
-         */
+
+        String upperCase = " ";
+        for (int i=0; i<className.length(); i++){
+            char c = className.charAt(i);
+            if (Character.isUpperCase(c)){
+                upperCase += c;
+            }
+        }
+        return generateRandomGivenSuffix(upperCase);
     }
 }
